@@ -6,45 +6,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="./UI.css">
+    <link rel="stylesheet" type="text/css" href="./F_Table.css">
 </head>
 
 <body>
     <div class="table" id="table"></div>
     <div id="table1"></div>
 </body>
-<script src="table.js"></script>
+<script src="F_Table.js"></script>
 <script src="data.js"></script>
 <script>
 
-    // new Table({
-    //     name: '#table',
-    //     row_limit: 10,
-    //     wheel_limit: 5,
-    //     datasets: {
-    //         field: ['username', 'password', 'nickname'],
-    //         records: [
-    //             ['111', 'aaa', 'SB'],
-    //             ['222', 'bbb', '爱思从'],
-    //             ['333', 'ccc', '行行行'],
-    //             ['444', 'ccc', '行行行'],
-    //             ['555', 'ccc', '行行行'],
-    //             ['666', 'ccc', '行行行'],
-    //             ['777', 'ccc', '行行行'],
-    //             ['888', 'ccc', '行行行'],
-    //             ['999', 'ccc', '行行行'],
-    //             ['000', 'ccc', '行行行'],
-    //             ['000', 'ccc', '行行行'],
-    //             ['000', 'ccc', '行行行'],
-    //         ]
-    //     }
-    // })
+    new Table({
+        name: '#table',
+        row_limit: 10,
+        scroll_limit: 5,
+        datasets: {
+            field: ['username', 'password', 'nickname'],
+            records: [
+                ['111', 'aaa', 'SB'],
+                ['222', 'bbb', '爱思从'],
+                ['333', 'ccc', '行行行'],
+                ['444', 'ccc', '行行行'],
+                ['555', 'ccc', '行行行'],
+                ['666', 'ccc', '行行行'],
+                ['777', 'ccc', '行行行'],
+                ['888', 'ccc', '行行行'],
+                ['999', 'ccc', '行行行'],
+                ['000', 'ccc', '行行行'],
+                ['000', 'ccc', '行行行'],
+                ['000', 'ccc', '行行行'],
+            ]
+        }
+    })
 
     var table = new Table({
         name: '#table1',
         row_limit: 20,
-        wheel_limit: 5,
-        datasets: datasets
+        scroll_limit: 5,
+        datasets: datasets,
+        createBefore: function () {
+            console.log(this)
+        }
     })
 
 </script>

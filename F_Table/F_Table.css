@@ -3,34 +3,51 @@
     padding: 0;
 }
 
+
+
+/* 滚动条 */
 body::-webkit-scrollbar {
-    width: 7px;
+    width: 10px;
     height: 10px;
 }
-
 body::-webkit-scrollbar-thumb {
     border-radius: 5px;
     background: #d2dcdf;
 }
-
 body::-webkit-scrollbar-thumb:hover {
     background: #b7c3c7;
 }
-
 body div::-webkit-scrollbar, body textarea::-webkit-scrollbar, body pre::-webkit-scrollbar, body table::-webkit-scrollbar, body ul::-webkit-scrollbar, body ol::-webkit-scrollbar {
-    width: 7px;
+    width: 10px;
     height: 10px;
 }
-
 body div::-webkit-scrollbar-thumb, body textarea::-webkit-scrollbar-thumb, body pre::-webkit-scrollbar-thumb, body table::-webkit-scrollbar-thumb, body ul::-webkit-scrollbar-thumb, body ol::-webkit-scrollbar-thumb {
     border-radius: 5px;
-    background: #d2dcdf;
+    background: #bec6c9;
 }
-
 body div::-webkit-scrollbar-thumb:hover, body textarea::-webkit-scrollbar-thumb:hover, body pre::-webkit-scrollbar-thumb:hover, body table::-webkit-scrollbar-thumb:hover, body ul::-webkit-scrollbar-thumb:hover, body ol::-webkit-scrollbar-thumb:hover {
-    background: #b7c3c7;
+    background: #a4afb3;
+}
+.__scroll__ {
+    position: absolute;
+    width: 11px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    /* cursor: pointer; */
 }
 
+
+
+
+/* 表格 */
+.__F_Table__ {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+}
 .__table__ {
     border: 1px solid #d4d4d4;
     border-radius: 5px;
@@ -40,66 +57,43 @@ body div::-webkit-scrollbar-thumb:hover, body textarea::-webkit-scrollbar-thumb:
     position: relative;
     user-select: none;
 }
-
 .__table__ > .thead {
     display: flex;
 }
-
 .__table__ > .thead > .tfield {
     padding: 5px 10px;
     border-right: 1px solid rgba(0, 0, 0, 0.12);
+    width: 100px;
     min-width: 100px;
     max-width: 200px;
     background: linear-gradient(#ffffff, #efefef);
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
     text-align: center;
 }
-
 .__table__ > .thead > .tfield:last-child {
     border-right: none;
 }
-
 .__table__ > .tbody > .tbody_item {
     display: flex;
     height: 30px;
 }
-
 .__table__ > .tbody > .tbody_item:last-child {
     border-bottom: none;
 }
-
 .__table__ > .tbody > .tbody_item > div {
     padding: 0 10px;
     border-right: 1px solid rgba(0, 0, 0, 0.12);
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    width: 100px;
     min-width: 100px;
     max-width: 200px;
     overflow: hidden;
     line-height: 29px;
 }
-
 .__table__ > .tbody > .tbody_item > div:last-child {
     border-right: none;
 }
-
-.__scroll__ {
-    /* width: 7px;
-    height: 10px;
-    background: #d2dcdf;
-    border-radius: 5px;
-    position: absolute;
-    right: 0; top: 0; */
-
-    position: absolute;
-    width: 8px;
-    right: 0px;
-    top: 0px;
-    bottom: 0px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-}
-
-.__scroll__ > div:hover {
-    background: #b7c3c7;
+.__table__ > .tbody > .tbody_item:last-child > div {
+    border-bottom: none;
 }
 
