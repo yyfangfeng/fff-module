@@ -21,7 +21,7 @@
         name: '#table',
         row_limit: 10,
         scroll_limit: 5,
-        datasets: {
+        dataset: {
             field: ['username', 'password', 'nickname'],
             records: [
                 ['111', 'aaa', 'SB'],
@@ -42,12 +42,15 @@
 
     var table = new Table({
         name: '#table1',
-        row_limit: 20,
+        row_limit: 15,
         scroll_limit: 5,
-        datasets: datasets,
+        dataset: dataset,
         createBefore: function () {
             console.log(this)
-        }
+        },
+        eventScroll: function (event) {
+            console.log(this.getPageNum())
+        },
     })
 
 </script>

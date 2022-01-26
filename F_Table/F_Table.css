@@ -12,10 +12,10 @@ body::-webkit-scrollbar {
 }
 body::-webkit-scrollbar-thumb {
     border-radius: 5px;
-    background: #d2dcdf;
+    background: #d3dbdf;
 }
 body::-webkit-scrollbar-thumb:hover {
-    background: #b7c3c7;
+    background: #b0bcc0;
 }
 body div::-webkit-scrollbar, body textarea::-webkit-scrollbar, body pre::-webkit-scrollbar, body table::-webkit-scrollbar, body ul::-webkit-scrollbar, body ol::-webkit-scrollbar {
     width: 10px;
@@ -23,10 +23,10 @@ body div::-webkit-scrollbar, body textarea::-webkit-scrollbar, body pre::-webkit
 }
 body div::-webkit-scrollbar-thumb, body textarea::-webkit-scrollbar-thumb, body pre::-webkit-scrollbar-thumb, body table::-webkit-scrollbar-thumb, body ul::-webkit-scrollbar-thumb, body ol::-webkit-scrollbar-thumb {
     border-radius: 5px;
-    background: #bec6c9;
+    background: #d3dbdf;
 }
 body div::-webkit-scrollbar-thumb:hover, body textarea::-webkit-scrollbar-thumb:hover, body pre::-webkit-scrollbar-thumb:hover, body table::-webkit-scrollbar-thumb:hover, body ul::-webkit-scrollbar-thumb:hover, body ol::-webkit-scrollbar-thumb:hover {
-    background: #a4afb3;
+    background: #b0bcc0;
 }
 .__scroll__ {
     position: absolute;
@@ -50,7 +50,7 @@ body div::-webkit-scrollbar-thumb:hover, body textarea::-webkit-scrollbar-thumb:
 }
 .__table__ {
     border: 1px solid #d4d4d4;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     overflow: hidden;
     overflow-x: auto;
     font-size: 12px;
@@ -97,3 +97,30 @@ body div::-webkit-scrollbar-thumb:hover, body textarea::-webkit-scrollbar-thumb:
     border-bottom: none;
 }
 
+.__page_column__ {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 5px;
+    background-color: #f8f8f8;
+    border: 1px solid rgb(216, 216, 216);
+    border-top: none;
+    font-size: 12px;
+}
+.__page_column__ > div {
+    margin: 0 6px;
+}
+.__page_column__ .page_num {
+    display: flex;
+    align-items: center;
+}
+.__page_column__ .page_num_input {
+    width: 32px;
+    height: 20px;
+    border: 1px solid #D4D4D4;
+    text-align: center;
+    font-size: 14px;
+}
+.__page_column__ .page_split {
+    margin: 0 8px;
+}
