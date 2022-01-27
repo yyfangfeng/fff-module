@@ -57,7 +57,9 @@ Table.prototype = {
         this.row_limit = 20          // 默认只显示 20 行数据
         this.scroll_limit = 5        // 默认滚轮滚动 5 条数据
 
-        this.$row_index = 0
+        this.page = {
+            page_num: null,          // 当前页数
+        }
 
         for (let key in obj) {
             if (key === 'data') {
@@ -151,7 +153,7 @@ Table.prototype = {
 
         // 当前页码
         let page_num_input = html_el[0].querySelector('.page_num_input')
-        page_num_input.value = this.getPageNum()
+        page_num_input.value = this.computePageNum()
 
         // 总页数
         let total_page_num = html_el[0].querySelector('.total_page_num')
@@ -166,8 +168,18 @@ Table.prototype = {
         return page
     },
 
-    // 获取当前页码
-    getPageNum: function () {
+    // 获取分页栏对象
+    getPageObj: function () {
+        return this.page
+    },
+
+    // 设置页码对象
+    setPageObj: function (obj={}) {
+        this.page.page_num = obj.page_num || this.computePageNum()
+    },
+
+    // 计算当前页码
+    computePageNum: function () {
         let row_index = this.getScrollLimitIndex()
         return Math.floor(row_index / this.row_limit) + 1
     },
@@ -304,11 +316,14 @@ Table.prototype = {
                 self.tableRenderData(data)
 
                 // 设置当前页码
-                let page_num = self.getPageNum()
+                let page_num = self.computePageNum()
                 let page_column_el = self.getPageColumn()
                 if (page_column_el) {
                     let page_num_input = page_column_el.querySelector('.page_num_input')
                     page_num_input.value = page_num
+                    self.setPageObj({
+                        page_num: page_num
+                    })
                 }
             }
         }

@@ -40,17 +40,14 @@
         }
     })
 
-    var table = new Table({
+    new Table({
         name: '#table1',
         row_limit: 15,
         scroll_limit: 5,
         dataset: dataset,
         createBefore: function () {
             console.log(this)
-        },
-        eventScroll: function (event) {
-            console.log(this.getPageNum())
-        },
+        }
     })
 
 </script>
