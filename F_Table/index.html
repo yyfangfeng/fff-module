@@ -45,9 +45,10 @@
         row_limit: 15,
         scroll_limit: 5,
         dataset: dataset,
-        createBefore: function () {
+        loadedData: function () {
             console.log(this)
-        }
+            console.log(this.getPageObj())
+        },
     })
 
 </script>

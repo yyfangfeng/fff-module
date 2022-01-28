@@ -59,6 +59,7 @@ Table.prototype = {
 
         this.page = {
             page_num: null,          // 当前页数
+            total_page_num: null,    // 总页数
         }
 
         for (let key in obj) {
@@ -141,13 +142,13 @@ Table.prototype = {
         // 分页栏
         let html = 
         `<div class="__page_column__">
-            <div><</div>
+            <div click="a_page_previous"><</div>
             <div class="page_num">
                 <input class="page_num_input" type="text" />
                 <div class="page_split">/</div>
                 <div class="total_page_num"></div>
             </div>
-            <div>></div>
+            <div click="a_page_next">></div>
         </div>`
         let html_el = this.createHtml(html)
 
@@ -160,6 +161,7 @@ Table.prototype = {
         total_page_num.innerText = this.getTotalPageNum()
 
         this.el.append(html_el[0])
+        this.setPageObj()
     },
 
     // 获取分页节点
@@ -176,6 +178,7 @@ Table.prototype = {
     // 设置页码对象
     setPageObj: function (obj={}) {
         this.page.page_num = obj.page_num || this.computePageNum()
+        this.page.total_page_num = obj.total_page_num || this.getTotalPageNum()
     },
 
     // 计算当前页码
