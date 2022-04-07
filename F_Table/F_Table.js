@@ -24,6 +24,8 @@ Table.prototype = {
 
     // 滚动事件
     eventScroll: function (event) {},
+    // 选择单元格
+    selectColumn: function (event) {},
 
     init: function () {
         if (this.$data) this.data = this.$data()
@@ -51,6 +53,9 @@ Table.prototype = {
         
         // 生命周期
         this.loadedData()
+
+        // 挂载方法
+        this.mountMethods()
     },
 
     initParams: function (obj) {
@@ -61,6 +66,8 @@ Table.prototype = {
             page_num: null,          // 当前页数
             total_page_num: null,    // 总页数
         }
+
+        this.selectColumns = []      // 选择的单元格
 
         for (let key in obj) {
             if (key === 'data') {
@@ -80,6 +87,25 @@ Table.prototype = {
         // 最外层添加 class 名
         this.el.classList.add('__F_Table__')
         this.setStyle()
+    },
+
+    // 挂载方法
+    mountMethods: function () {
+        let self = this
+        let table_el = this.table_el
+        let columns = table_el.querySelectorAll('.tbody .tbody_item div')
+        columns.forEach((item, index) => {
+            item.onclick = function (event) {
+                item.style.background = '#e0e0e0'
+                item.parentElement.style.background = '#f5f5f5'
+
+                self.selectColumns = [item]
+            }
+        })
+    },
+
+    setColumnsColor: function () {
+
     },
 
     // 获取页面节点
